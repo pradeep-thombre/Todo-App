@@ -57,9 +57,27 @@ function loadData(){
         document.getElementById(data.id).disabled = data.isComplete;
     }
 }
-
+var editdoc={}
 function editClicked(id){
     $('#edit-box').show();
+    data=map.get(id);
+    editdoc=data;
+    $('#edit-desc').val(data.description);
+    $('#edit-hidden').val(data.id);
+    $('#edit-category').val(data.category);
+    $('#edit-date').val(data.dueDate);
+    $('#complete').val(data.isComplete);
+
+}
+function update(){
+    editdoc.description=$('#edit-desc').val();
+    editdoc.category=$('#edit-category').val();
+    editdoc.date=$('#edit-date').val();
+    editdoc.isComplete=$('#complete').val();
+    map.set(editdoc.id,editdoc);
+    loadData();
+    editdoc={}
+    $('#edit-box').hide();
 }
 
 function checkClicked(id){
@@ -77,5 +95,6 @@ function removeClicked(){
     for (let item of selected){
         map.delete(item);
     }
+    loadData();
 }
 

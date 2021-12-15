@@ -268,3 +268,7 @@ label span {
   width: 100px;
   align-self: center;
 }
+
+#edit-box p{
+  margin: 5px 15%;
+}
