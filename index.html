@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- App name -->
+    <title>TODO APP</title>
+
+    <!-- favicon icon  -->
+    <link rel="icon" href="https://raw.githubusercontent.com/fabiospampinato/vscode-todo-plus/master/resources/logo/logo.png" type="image/x-icon" >
+    
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body >
+
+    <!-- background image -->
+    <div id="background"></div>
+
+    <!-- heading for app -->
+    <h1>TODO APP</h1>
+
+    <h2 id="pending"></h2>
+    
+    <!-- Main box -->
+    <div class="box" >
+            <!-- Description input  -->
+            <div class="row">
+                <div class="col1 grayBack">
+                    <label for="Description">Description*</label>
+                    <input type="text" id="Description" required name="description" placeholder="What do you need to do?">
+                </div>
+
+            </div>
+            <div class="row">
+
+                <!-- Category using select bar  -->
+                <div class="col2 grayBack">
+                    <label for="Category">Category*</label>
+                    <select name="category" id="category" required>
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="school">School</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Due date using input type date  -->
+                <div class="col2 grayBack">
+                    <label for="dueDate">Due Date*</label>
+                    <input type="date" id="date" name="dueDate" >
+                </div>
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="row">
+
+                <!-- add button -->
+                <button  onclick="AddClicked()" class="col2">
+                    <i class="fas fa-plus"></i> 
+                    <span>Add Task</span>
+                </button>
+
+                <!-- delete button  -->
+                <button onclick="removeClicked()" class="col2">
+                    <i class="fas fa-trash"></i>
+                    <span>DELETE TASKS</span>
+                </button>
+            </div>
+
+
+            <!-- unorder list to list all tasks  -->
+            <ul id="ul">
+                
+            </ul>
+    </div>
+    <div id="edit-box">
+        <h3>Edit Todo</h3>
+
+        <!-- user profile image  -->
+
+        <!-- input texts to modify the data  -->
+        <input id="edit-name" type="text" placeholder="Description">
+        <select name="edit-category" id="category" style="padding: 0px 15%;" required>
+            <option value="personal">Personal</option>
+            <option value="work">Work</option>
+            <option value="school">School</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="date" id="edit-date" name="dueDate">
+        <!-- update button for update modified data  -->
+        <button id="update-button" onclick="update()" type="button">Update</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
